@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuWebPerfecta - Crea tu página web ideal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #9b59b6 0%, #e84393 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #9b59b6 0%, #e84393 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .pedido-form {
+            padding: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .form-group:nth-child(1) { animation-delay: 0.1s; }
+        .form-group:nth-child(2) { animation-delay: 0.2s; }
+        .form-group:nth-child(3) { animation-delay: 0.3s; }
+        .form-group:nth-child(4) { animation-delay: 0.4s; }
+        .form-group:nth-child(5) { animation-delay: 0.5s; }
+        .form-group:nth-child(6) { animation-delay: 0.6s; }
+        .form-group:nth-child(7) { animation-delay: 0.7s; }
+        .form-group:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95em;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #e84393;
+            box-shadow: 0 0 0 3px rgba(232, 67, 147, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        small {
+            display: block;
+            margin-top: 5px;
+            color: #666;
+            font-size: 0.85em;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #9b59b6 0%, #e84393 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px;
+            background: #25D366;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            margin-top: 15px;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            background: #128C7E;
+        }
+
+        .whatsapp-icon {
+            width: 24px;
+            height: 24px;
+            fill: white;
+        }
+
+        .botones-container {
+            margin-top: 20px;
+        }
+
+        .mensaje {
+            padding: 20px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            .header {
+                padding: 30px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .pedido-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1> TuPagina Web</h1>
+            <p>Diseñamos la página web de tus sueños</p>
+        </div>
+
+        <form id="pedidoForm" class="pedido-form">
+            <div class="form-group">
+                <label for="nombre">Nombre completo:</label>
+                <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez">
+            </div>
+
+            <div class="form-group">
+                <label for="celular">Número de celular:</label>
+                <input type="tel" id="celular" name="celular" required placeholder="Ej: 70121612">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Correo electrónico:</label>
+                <input type="email" id="email" name="email" required placeholder="Ej: juan@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="tipoPagina">Tipo de página web:</label>
+                <select id="tipoPagina" name="tipoPagina" required>
+                    <option value="">Selecciona un tipo</option>
+                    <option value="landing">Landing Page (1 página)</option>
+                    <option value="empresa">Página Empresarial (5-10 páginas)</option>
+                    <option value="ecommerce">Tienda Online (E-commerce)</option>
+                    <option value="blog">Blog Personal/Profesional</option>
+                    <option value="portfolio">Portafolio</option>
+                    <option value="otro">Otro (especificar)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion">Descripción de lo que quieres:</label>
+                <textarea id="descripcion" name="descripcion" rows="4" required placeholder="Describe cómo quieres tu página web, colores, estilo, secciones, funcionalidades, etc..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="imagenReferencia">Imagen de referencia (opcional):</label>
+                <input type="file" id="imagenReferencia" name="imagenReferencia" accept="image/*">
+                <small>Sube una imagen de cómo quieres que se vea tu página web</small>
+            </div>
+
+            <div class="form-group">
+                <label for="presupuesto">Presupuesto estimado (USD):</label>
+                <input type="number" id="presupuesto" name="presupuesto" placeholder="Ej: 500" step="100">
+            </div>
+
+            <div class="form-group">
+                <label for="fechaLimite">Fecha deseada de entrega:</label>
+                <input type="date" id="fechaLimite" name="fechaLimite">
+            </div>
+
+            <!-- BOTONES: Enviar Solicitud + WhatsApp -->
+            <div class="botones-container">
+                <button type="submit" class="btn-submit">📨 Enviar Solicitud</button>
+                
+                <a href="https://api.whatsapp.com/send?phone=59170121612&text=Hola, necesito información sobre la creación de mi página web." target="_blank" class="btn-whatsapp">
+                    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white">
+                        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.5 3.47 1.44 4.97L2 22l5.44-1.46c1.45.86 3.12 1.33 4.81 1.33 5.46 0 9.91-4.45 9.91-9.91C22.06 6.45 17.62 2 12.04 2zm0 2c4.36 0 7.91 3.55 7.91 7.91 0 4.36-3.55 7.91-7.91 7.91-1.46 0-2.86-.4-4.06-1.15l-.31-.18-3.25.87.88-3.14-.2-.33c-.77-1.2-1.18-2.6-1.18-4.06 0-4.36 3.55-7.91 7.91-7.91zM8.48 7.45c-.2-.46-.44-.47-.68-.48h-.58c-.18 0-.48.07-.73.37-.25.3-1.03 1.01-1.03 2.44 0 1.44 1.05 2.83 1.18 3.03.14.19 2.03 3.21 4.95 4.37.69.27 1.37.44 1.84.57.78.18 1.49.15 2.04.09.63-.06 1.93-.79 2.21-1.55.28-.76.28-1.41.2-1.55-.09-.14-.33-.22-.7-.38-.36-.17-2.14-1.06-2.47-1.18-.33-.12-.58-.18-.83.18-.24.36-.96 1.18-1.18 1.42-.22.24-.44.27-.81.09-.36-.18-1.54-.57-2.93-1.82-1.09-.97-1.82-2.16-2.03-2.53-.21-.37-.02-.57.16-.75.14-.14.36-.37.54-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.17-.74-1.79-1.02-2.45z"/>
+                    </svg>
+                    💬 Contáctame por WhatsApp
+                </a>
+            </div>
+        </form>
+
+        <div id="mensaje" class="mensaje"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+       
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz6atb2FEuIIYFySYsISIM3FDNW4R6YF759iupsvZtKVW8oCB1PDNnxs5HL5qo7uXyI/exec';
+        
+        document.getElementById('pedidoForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.querySelector('.btn-submit');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Enviando...';
+            
+            try {
+                const nombre = document.getElementById('nombre').value.trim();
+                const celular = document.getElementById('celular').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const tipoPagina = document.getElementById('tipoPagina').value;
+                const descripcion = document.getElementById('descripcion').value.trim();
+                
+                if (!nombre || !celular || !email || !tipoPagina || !descripcion) {
+                    throw new Error('Por favor completa todos los campos requeridos');
+                }
+                
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    throw new Error('Por favor ingresa un correo electrónico válido');
+                }
+                
+                const formData = new FormData();
+                formData.append('nombre', nombre);
+                formData.append('celular', celular);
+                formData.append('email', email);
+                formData.append('tipoPagina', tipoPagina);
+                formData.append('descripcion', descripcion);
+                formData.append('presupuesto', document.getElementById('presupuesto').value || 'No especificado');
+                formData.append('fechaLimite', document.getElementById('fechaLimite').value || 'No especificada');
+                formData.append('fechaPedido', new Date().toLocaleString('es-ES'));
+                
+                const imagenFile = document.getElementById('imagenReferencia').files[0];
+                
+                if (imagenFile) {
+                    const reader = new FileReader();
+                    reader.onloadend = async function() {
+                        const base64Image = reader.result.split(',')[1];
+                        formData.append('imagen', base64Image);
+                        formData.append('imagenNombre', imagenFile.name);
+                        await enviarDatos(formData);
+                    };
+                    reader.readAsDataURL(imagenFile);
+                } else {
+                    await enviarDatos(formData);
+                }
+                
+            } catch (error) {
+                Swal.fire({
+                    title: 'Error',
+                    text: error.message,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+                submitBtn.disabled = false;
+                submitBtn.textContent = '📨 Enviar Solicitud';
+            }
+        });
+        
+        async function enviarDatos(formData) {
+            try {
+                const objetoDatos = {};
+                for (let [key, value] of formData.entries()) {
+                    objetoDatos[key] = value;
+                }
+                
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(objetoDatos)
+                });
+                
+                Swal.fire({
+                    title: '¡Solicitud Enviada!',
+                    text: 'Tu solicitud ha sido registrada exitosamente. Te contactaremos a la brevedad.',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
+                
+                document.getElementById('pedidoForm').reset();
+                
+            } catch (error) {
+                console.error('Error:', error);
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Hubo un error al enviar tu solicitud. Por favor intenta nuevamente.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+            } finally {
+                const submitBtn = document.querySelector('.btn-submit');
+                submitBtn.disabled = false;
+                submitBtn.textContent = '📨 Enviar Solicitud';
+            }
+        }
+    </script>
+</body>
+</html>
