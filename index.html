@@ -144,39 +144,45 @@
             transform: none;
         }
 
-        .btn-whatsapp {
-            display: flex;
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .footer p {
+            color: #666;
+            font-size: 0.85em;
+            margin-bottom: 10px;
+        }
+
+        .whatsapp-float {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            width: 100%;
-            padding: 15px;
             background: #25D366;
             color: white;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            padding: 12px 25px;
+            border-radius: 50px;
             text-decoration: none;
-            margin-top: 15px;
+            font-weight: 600;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            margin-top: 5px;
         }
 
-        .btn-whatsapp:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        .whatsapp-float:hover {
+            transform: scale(1.05);
             background: #128C7E;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .whatsapp-icon {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             fill: white;
-        }
-
-        .botones-container {
-            margin-top: 20px;
         }
 
         .mensaje {
@@ -206,8 +212,8 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1> TuPagina Web</h1>
-            <p>Diseñamos la página web de tus sueños</p>
+            <h1> Tu pagina web</h1>
+            <p>Diseñamos la página web que tengas en mente</p>
         </div>
 
         <form id="pedidoForm" class="pedido-form">
@@ -260,25 +266,26 @@
                 <input type="date" id="fechaLimite" name="fechaLimite">
             </div>
 
-            <!-- BOTONES: Enviar Solicitud + WhatsApp -->
-            <div class="botones-container">
-                <button type="submit" class="btn-submit">📨 Enviar Solicitud</button>
-                
-                <a href="https://api.whatsapp.com/send?phone=59170121612&text=Hola, necesito información sobre la creación de mi página web." target="_blank" class="btn-whatsapp">
-                    <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white">
-                        <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.5 3.47 1.44 4.97L2 22l5.44-1.46c1.45.86 3.12 1.33 4.81 1.33 5.46 0 9.91-4.45 9.91-9.91C22.06 6.45 17.62 2 12.04 2zm0 2c4.36 0 7.91 3.55 7.91 7.91 0 4.36-3.55 7.91-7.91 7.91-1.46 0-2.86-.4-4.06-1.15l-.31-.18-3.25.87.88-3.14-.2-.33c-.77-1.2-1.18-2.6-1.18-4.06 0-4.36 3.55-7.91 7.91-7.91zM8.48 7.45c-.2-.46-.44-.47-.68-.48h-.58c-.18 0-.48.07-.73.37-.25.3-1.03 1.01-1.03 2.44 0 1.44 1.05 2.83 1.18 3.03.14.19 2.03 3.21 4.95 4.37.69.27 1.37.44 1.84.57.78.18 1.49.15 2.04.09.63-.06 1.93-.79 2.21-1.55.28-.76.28-1.41.2-1.55-.09-.14-.33-.22-.7-.38-.36-.17-2.14-1.06-2.47-1.18-.33-.12-.58-.18-.83.18-.24.36-.96 1.18-1.18 1.42-.22.24-.44.27-.81.09-.36-.18-1.54-.57-2.93-1.82-1.09-.97-1.82-2.16-2.03-2.53-.21-.37-.02-.57.16-.75.14-.14.36-.37.54-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.17-.74-1.79-1.02-2.45z"/>
-                    </svg>
-                    💬 Contáctame por WhatsApp
-                </a>
-            </div>
+            <button type="submit" class="btn-submit">📨 Enviar Solicitud</button>
         </form>
+
+        <!-- PIE DE PÁGINA CON BOTÓN DE WHATSAPP Y MENSAJE AUTOMÁTICO -->
+        <div class="footer">
+            <p>© 2026 </p>
+            <a href="https://api.whatsapp.com/send?phone=59170121612&text=Hey, hola! Te mandé una solicitud." target="_blank" class="whatsapp-float">
+                <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="white">
+                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.5 3.47 1.44 4.97L2 22l5.44-1.46c1.45.86 3.12 1.33 4.81 1.33 5.46 0 9.91-4.45 9.91-9.91C22.06 6.45 17.62 2 12.04 2zm0 2c4.36 0 7.91 3.55 7.91 7.91 0 4.36-3.55 7.91-7.91 7.91-1.46 0-2.86-.4-4.06-1.15l-.31-.18-3.25.87.88-3.14-.2-.33c-.77-1.2-1.18-2.6-1.18-4.06 0-4.36 3.55-7.91 7.91-7.91zM8.48 7.45c-.2-.46-.44-.47-.68-.48h-.58c-.18 0-.48.07-.73.37-.25.3-1.03 1.01-1.03 2.44 0 1.44 1.05 2.83 1.18 3.03.14.19 2.03 3.21 4.95 4.37.69.27 1.37.44 1.84.57.78.18 1.49.15 2.04.09.63-.06 1.93-.79 2.21-1.55.28-.76.28-1.41.2-1.55-.09-.14-.33-.22-.7-.38-.36-.17-2.14-1.06-2.47-1.18-.33-.12-.58-.18-.83.18-.24.36-.96 1.18-1.18 1.42-.22.24-.44.27-.81.09-.36-.18-1.54-.57-2.93-1.82-1.09-.97-1.82-2.16-2.03-2.53-.21-.37-.02-.57.16-.75.14-.14.36-.37.54-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.17-.74-1.79-1.02-2.45z"/>
+                </svg>
+                💬 Contáctame por WhatsApp
+            </a>
+        </div>
 
         <div id="mensaje" class="mensaje"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-       
+        // 🔥 URL DE TU APPS SCRIPT
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz6atb2FEuIIYFySYsISIM3FDNW4R6YF759iupsvZtKVW8oCB1PDNnxs5HL5qo7uXyI/exec';
         
         document.getElementById('pedidoForm').addEventListener('submit', async function(e) {
